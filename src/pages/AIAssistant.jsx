@@ -2,7 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import axios from "axios";
-import "./AIAssistant.css";
+import "./AIAssistant.css"
+import API_URL from "../config";;
 
 export default function AIAssistant() {
   const navigate = useNavigate();
@@ -165,7 +166,7 @@ export default function AIAssistant() {
       });
 
       const response = await axios.post(
-        "http://localhost:5000/api/ai/chat",
+        `${API_URL}/api/ai/chat`,
         { 
           messages: apiMessages,
           projectContext: projectContext || null
