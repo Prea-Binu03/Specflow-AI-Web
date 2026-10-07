@@ -17,7 +17,7 @@ import Profile from "./pages/Profile.jsx";
 import Settings from "./pages/Settings.jsx";
 import ForgotPassword from "./pages/ForgetPassword.jsx";
 import ProjectWorkspace from "./pages/ProjectWorkspace.jsx";
-import AIAssistant from "./pages/AIAssistant.jsx"; // <-- Newly imported AI Assistant page
+import AIAssistant from "./pages/AIAssistant.jsx";
 
 /* =====================================================
     REUSABLE SIDEBAR COMPONENT (Sabhi pages ke liye)
@@ -47,7 +47,6 @@ function Sidebar() {
           <span className="side-icon">▱</span>
           <span>My Projects</span>
         </Link>
-        {/* Added AI Assistant Link */}
         <Link to="/ai-assistant" className="side-link">
           <span className="side-icon">🤖</span>
           <span>AI Assistant</span>
@@ -226,6 +225,7 @@ function Home() {
 
 function UserDashboard() {
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -248,7 +248,7 @@ function UserDashboard() {
           return;
         }
 
-        const response = await fetch(`http://localhost:5000/api/projects/user/${userId}`);
+        const response = await fetch(`${API_URL}/api/projects/user/${userId}`);
         const data = await response.json();
 
         if (!response.ok) {
@@ -266,7 +266,7 @@ function UserDashboard() {
     };
 
     fetchDashboardData();
-  }, [userId]);
+  }, [userId, API_URL]);
 
   const getProjectStatus = (project) => {
     const tasks = project?.aiPlan?.taskProgress || project?.taskProgress || [];
@@ -540,7 +540,7 @@ function App() {
       {/* PROJECT & SIDEBAR PAGES */}
       <Route path="/project-idea" element={<ProjectIdea />} />
       <Route path="/my-projects" element={<MyProjects />} />
-      <Route path="/ai-assistant" element={<AIAssistant />} /> {/* <-- Newly added route */}
+      <Route path="/ai-assistant" element={<AIAssistant />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/project/:projectId" element={<ProjectWorkspace />} />
