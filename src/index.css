@@ -1,0 +1,106 @@
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-width: 320px;
+}
+
+button,
+textarea,
+input,
+select {
+  font: inherit;
+}
+
+:root {
+  --page-bg: #07101f;
+  --text-main: #ffffff;
+}
+
+:root[data-theme="light"] {
+  --page-bg: #eef4fb;
+  --text-main: #17243a;
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--text-main);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+body.light-mode {
+  --page-bg: #eef4fb;
+  --text-main: #17243a;
+}
+
+body.light-mode .sidebar {
+  background-color: #ffffff !important;
+  border-right: 1px solid #e2e8f0 !important;
+}
+
+body.light-mode .sidebar-nav .side-link {
+  color: #475569 !important;
+}
+
+body.light-mode .sidebar-nav .side-link:hover,
+body.light-mode .sidebar-nav .side-link.active {
+  background-color: rgba(56, 189, 248, 0.12) !important;
+  color: #0284c7 !important;
+}
+
+body.light-mode .topbar {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+}
+/* =========================================
+   FIXING LIGHT MODE HEADINGS & BACKGROUND
+========================================= */
+body.light-mode {
+  --page-bg: #f1f5f9;
+  --text-main: #0f172a;
+}
+
+body.light-mode .main-content {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+body.light-mode .settings-intro h1 {
+  color: #0f172a !important;
+}
+
+body.light-mode .settings-intro h1 span {
+  color: #0284c7 !important;
+}
+
+body.light-mode .settings-intro p {
+  color: #475569 !important;
+}
+/* =========================================
+   FIXING SIDEBAR LOGO & TOPBAR IN LIGHT MODE
+========================================= */
+body.light-mode .sidebar-logo {
+  color: #0f172a !important;
+}
+
+body.light-mode .sidebar-logo b {
+  color: #0284c7 !important;
+}
+
+body.light-mode .topbar-title {
+  color: #0f172a !important;
+}
+
+body.light-mode .sidebar-bottom {
+  color: #475569 !important;
+}

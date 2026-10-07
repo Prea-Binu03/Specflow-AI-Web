@@ -1,0 +1,357 @@
+/* =========================================
+   PROFILE PAGE
+========================================= */
+
+.profile-page {
+  width: 100%;
+}
+
+
+/* =========================================
+   PROFILE INTRO
+========================================= */
+
+.profile-intro {
+  margin-bottom: 28px;
+}
+
+.profile-intro .intro-label {
+  color: #8fa9c7;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.profile-intro h1 {
+  margin: 0;
+
+  font-size: 42px;
+
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  color: #ffffff;
+}
+
+.profile-intro h1 span {
+  color: #20bfff;
+}
+
+.profile-intro p {
+  margin: 10px 0 0;
+
+  color: #91a4bd;
+
+  font-size: 15px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   PROFILE CARD
+========================================= */
+
+.profile-card {
+  width: 100%;
+
+  max-width: 820px;
+
+  box-sizing: border-box;
+
+  padding: 32px;
+
+  border: 1px solid rgba(99, 157, 215, 0.22);
+
+  border-radius: 18px;
+
+  /*
+     Dark navy glass effect
+  */
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 36, 67, 0.96),
+      rgba(8, 22, 43, 0.98)
+    );
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(14px);
+}
+
+
+/* =========================================
+   FORM GROUP
+========================================= */
+
+.profile-form-group {
+  width: 100%;
+
+  margin-bottom: 20px;
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.profile-form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #dbe7f5;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   INPUT / SELECT / TEXTAREA
+========================================= */
+
+.profile-form-group input,
+.profile-form-group select,
+.profile-form-group textarea {
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(120, 160, 200, 0.25);
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.profile-form-group input {
+
+  height: 50px;
+
+  padding: 0 16px;
+}
+
+
+/* =========================================
+   DROPDOWN
+========================================= */
+
+.profile-form-group select {
+
+  height: 50px;
+
+  padding: 0 16px;
+
+  cursor: pointer;
+
+  appearance: auto;
+}
+
+
+/* =========================================
+   TEXTAREA
+========================================= */
+
+.profile-form-group textarea {
+
+  min-height: 115px;
+
+  padding: 14px 16px;
+
+  resize: vertical;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   PLACEHOLDER
+========================================= */
+
+.profile-form-group input::placeholder,
+.profile-form-group textarea::placeholder {
+
+  color: #71849c;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.profile-form-group input:hover,
+.profile-form-group select:hover,
+.profile-form-group textarea:hover {
+
+  border-color: rgba(80, 170, 235, 0.45);
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+
+/* =========================================
+   FOCUS
+========================================= */
+
+.profile-form-group input:focus,
+.profile-form-group select:focus,
+.profile-form-group textarea:focus {
+
+  border-color: #20bfff;
+
+  background: rgba(15, 42, 75, 0.8);
+
+  box-shadow:
+    0 0 0 3px rgba(32, 191, 255, 0.09);
+}
+
+
+/* =========================================
+   DROPDOWN OPTIONS
+========================================= */
+
+.profile-form-group select option {
+
+  background: #102642;
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   OPTIONAL TEXT
+========================================= */
+
+.optional-profile {
+
+  color: #71849c;
+
+  font-size: 11px;
+
+  font-weight: 400;
+
+  margin-left: 5px;
+}
+
+
+/* =========================================
+   UPDATE PROFILE BUTTON
+========================================= */
+
+.profile-update-btn {
+
+  width: 100%;
+
+  height: 50px;
+
+  margin-top: 6px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #168fd3,
+      #20bfff
+    );
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.profile-update-btn:hover {
+
+  transform: translateY(-1px);
+
+  background:
+    linear-gradient(
+      90deg,
+      #159bdc,
+      #28c6ff
+    );
+
+  box-shadow:
+    0 8px 24px rgba(32, 191, 255, 0.22);
+}
+
+
+.profile-update-btn:active {
+
+  transform: translateY(0);
+
+  box-shadow: none;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .profile-card {
+    max-width: 100%;
+  }
+
+  .profile-intro h1 {
+    font-size: 36px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .profile-card {
+
+    padding: 22px 18px;
+
+    border-radius: 15px;
+  }
+
+  .profile-intro h1 {
+
+    font-size: 30px;
+  }
+
+  .profile-form-group {
+
+    margin-bottom: 16px;
+  }
+}

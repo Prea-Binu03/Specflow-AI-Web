@@ -1,0 +1,499 @@
+/* =========================
+   Authentication Page
+   ========================= */
+
+.auth-page {
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(52, 152, 219, 0.25),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 90%,
+      rgba(31, 69, 110, 0.35),
+      transparent 40%
+    ),
+    #0b1020;
+}
+
+
+/* =========================
+   Main Card
+   ========================= */
+
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+
+  padding: 36px 38px 32px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 22px;
+
+  background: rgba(18, 31, 57, 0.88);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(15px);
+}
+
+
+/* =========================
+   Back To Home
+   ========================= */
+
+.back-home {
+  display: inline-flex;
+
+  align-items: center;
+
+  margin-bottom: 24px;
+
+  color: #b9dfff;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.back-home:hover {
+  color: #ffffff;
+
+  transform: translateX(-4px);
+}
+
+
+/* =========================
+   Heading
+   ========================= */
+
+.auth-card h1 {
+  margin: 0 0 8px;
+
+  color: #ffffff;
+
+  font-size: 32px;
+
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+
+/* =========================
+   Subtitle
+   ========================= */
+
+.auth-subtitle {
+  margin: 0 0 28px;
+
+  color: #aebbd0;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+   Form
+   ========================= */
+
+.auth-card form {
+  width: 100%;
+}
+
+.form-group {
+  width: 100%;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================
+   Labels
+   ========================= */
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #e8eef8;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   Input
+   ========================= */
+
+.form-group input {
+  width: 100%;
+
+  height: 48px;
+
+  padding: 0 14px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder {
+  color: #78879e;
+}
+
+.form-group input:focus {
+  border-color: #3498db;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 0 0 3px rgba(52, 152, 219, 0.12);
+}
+
+
+/* =========================
+   Role / Profession Dropdown
+   ========================= */
+
+.form-group select {
+  width: 100%;
+
+  height: 48px;
+
+  padding: 0 14px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.form-group select:focus {
+  border-color: #3498db;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 0 0 3px rgba(52, 152, 219, 0.12);
+}
+
+
+/* Dropdown options */
+
+.form-group select option {
+  background: #162b4b;
+
+  color: #ffffff;
+
+  padding: 10px;
+}
+
+
+/* =========================
+   Optional Text
+   ========================= */
+
+.optional {
+  color: #78879e;
+
+  font-size: 12px;
+
+  font-weight: 400;
+
+  margin-left: 4px;
+}
+
+
+/* =========================
+   Password Row
+   ========================= */
+
+.password-label {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 8px;
+}
+
+.password-label label {
+  margin: 0;
+}
+
+.password-label a {
+  color: #6db8f2;
+
+  font-size: 13px;
+
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.password-label a:hover {
+  color: #ffffff;
+}
+
+
+/* =========================
+   Login / Create Account
+   ========================= */
+
+.auth-button {
+  width: 100%;
+
+  height: 48px;
+
+  margin-top: 4px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #3498db;
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.auth-button:hover {
+  background: #2980b9;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 20px rgba(52, 152, 219, 0.22);
+}
+
+
+/* =========================
+   OR Divider
+   ========================= */
+
+.divider {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 24px 0;
+
+  color: #718096;
+
+  font-size: 12px;
+
+  text-align: center;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.13);
+}
+
+
+/* =========================
+   Google Button
+   ========================= */
+
+.google-button {
+  width: 100%;
+
+  height: 48px;
+
+  padding: 0 14px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.google-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* =========================
+   Google G
+   ========================= */
+
+.google-icon {
+  width: 22px;
+
+  height: 22px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #4285f4;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+
+/* =========================
+   Already Have Account
+   ========================= */
+
+.auth-footer {
+  margin: 24px 0 4px;
+
+  padding-bottom: 4px;
+
+  color: #9ba9bd;
+
+  font-size: 14px;
+
+  text-align: center;
+
+  line-height: 1.6;
+}
+
+
+/* Login Link */
+
+.auth-footer a {
+  margin-left: 6px;
+
+  color: #20c4ff;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+}
+
+.auth-footer a:hover {
+  color: #ffffff;
+
+  text-decoration: underline;
+}
+
+
+/* =========================
+   Mobile Responsive
+   ========================= */
+
+@media (max-width: 520px) {
+
+  .auth-page {
+    padding: 25px 15px;
+  }
+
+  .auth-card {
+    max-width: 100%;
+
+    padding: 30px 22px 28px;
+
+    border-radius: 18px;
+  }
+
+  .auth-card h1 {
+    font-size: 28px;
+  }
+
+}
