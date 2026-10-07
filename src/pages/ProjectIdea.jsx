@@ -134,7 +134,7 @@ function ProjectIdea() {
     setIsGeneratingIdeas(true);
     try {
       // Updated URL to point to the correct AI route endpoint
-      const response = await fetch("http://localhost:5000/api/ai/generate-ideas", {
+      const response = await fetch(`${API_URL}/api/ai/generate-ideas`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ topic: ideaTopic }),
