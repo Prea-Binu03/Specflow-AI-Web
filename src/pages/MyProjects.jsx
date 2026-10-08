@@ -89,6 +89,7 @@ function MyProjects() {
     };
 
     fetchProjects();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId]);
   // =====================================================
   // HELPER: CALCULATE PROJECT STATUS
