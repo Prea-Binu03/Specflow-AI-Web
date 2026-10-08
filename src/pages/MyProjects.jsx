@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./ProjectIdea.css";
+import API_URL from "../config";
 
 function MyProjects() {
   const navigate = useNavigate();
@@ -62,10 +63,7 @@ function MyProjects() {
           return;
         }
 
-        const response = await fetch(
-          `http://localhost:5000/api/projects/user/${userId}`
-        );
-
+       const response = await fetch(`${API_URL}/api/projects/user/${userId}`);
         const data = await response.json();
 
         if (!response.ok) {
