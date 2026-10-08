@@ -27,7 +27,7 @@ function MyProjects() {
   const [sortBy, setSortBy] = useState("Newest First");
 
   // =====================================================
-  // GET LOGGED-IN USER
+  // GET LOGGED-IN USER (Updated to support userId, _id, and id)
   // =====================================================
 
   const storedUser = JSON.parse(
@@ -40,6 +40,7 @@ function MyProjects() {
     "User";
 
   const userId =
+    storedUser?.userId ||
     storedUser?._id ||
     storedUser?.id;
 
@@ -51,12 +52,15 @@ function MyProjects() {
     const fetchProjects = async () => {
       try {
         if (!userId) {
+          console.warn("User ID not found in localStorage:", storedUser);
           setProjects([]);
           setLoading(false);
           return;
         }
 
-   const response = await fetch(`http://localhost:5000/api/projects/user/${userId}`);
+        const response = await fetch(
+          `http://localhost:5000/api/projects/user/${userId}`
+        );
 
         const data = await response.json();
 
@@ -66,11 +70,12 @@ function MyProjects() {
           );
         }
 
-        setProjects(
-          Array.isArray(data)
-            ? data
-            : []
-        );
+        // Handle both direct array and object response ({ projects: [...] })
+        const projectList = Array.isArray(data)
+          ? data
+          : (data.projects || data.data || data.result || []);
+
+        setProjects(projectList);
       } catch (error) {
         console.error(
           "Projects Error:",
@@ -85,7 +90,6 @@ function MyProjects() {
 
     fetchProjects();
   }, [userId]);
-
   // =====================================================
   // HELPER: CALCULATE PROJECT STATUS
   // =====================================================
