@@ -2,10 +2,11 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 import "./Auth.css";
+import API_URL from "../config";
 
 function Register() {
   const navigate = useNavigate();
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -131,7 +132,7 @@ function Register() {
         });
         const profile = await profileRes.json();
 
-        const backendRes = await fetch("http://localhost:5000/api/auth/google", {
+       const backendRes = await fetch(`${API_URL}/api/auth/google`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ 
