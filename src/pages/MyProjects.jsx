@@ -27,12 +27,14 @@ function MyProjects() {
   const [sortBy, setSortBy] = useState("Newest First");
 
   // =====================================================
-  // GET LOGGED-IN USER (Updated to support userId, _id, and id)
+  // GET LOGGED-IN USER
   // =====================================================
 
   const storedUser = JSON.parse(
     localStorage.getItem("user") || "null"
   );
+
+  console.log("Stored User:", storedUser);
 
   const userName =
     storedUser?.name ||
@@ -43,6 +45,8 @@ function MyProjects() {
     storedUser?.userId ||
     storedUser?._id ||
     storedUser?.id;
+
+  console.log("Extracted User ID:", userId);
 
   // =====================================================
   // LOAD PROJECTS
@@ -70,7 +74,6 @@ function MyProjects() {
           );
         }
 
-        // Handle both direct array and object response ({ projects: [...] })
         const projectList = Array.isArray(data)
           ? data
           : (data.projects || data.data || data.result || []);
@@ -91,6 +94,7 @@ function MyProjects() {
     fetchProjects();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId]);
+
   // =====================================================
   // HELPER: CALCULATE PROJECT STATUS
   // =====================================================
@@ -191,7 +195,7 @@ function MyProjects() {
 
       const contentType = response.headers.get("content-type");
       if (!contentType || !contentType.includes("application/json")) {
-        throw new Error("Server returned a non-JSON response. Please ensure backend route is set up and server is restarted.");
+        throw new Error("Server returned a non-JSON response.");
       }
 
       const data = await response.json();
@@ -327,7 +331,6 @@ function MyProjects() {
             <span>My Projects</span>
           </Link>
 
-          {/* Added AI Assistant Link */}
         <Link to="/ai-assistant" className="side-link">
           <span className="side-icon">🤖</span>
           <span>AI Assistant</span>
@@ -512,8 +515,7 @@ function MyProjects() {
                     outline: "none",
                     fontSize: "14px",
                     fontWeight: "500",
-                    boxShadow: "inset 0 2px 4px rgba(0, 0, 0, 0.2)",
-                    transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)"
+                    boxShadow: "inset 0 2px 4px rgba(0, 0, 0, 0.2)"
                   }}
                 />
               </div>
@@ -710,9 +712,6 @@ function MyProjects() {
         </section>
       </main>
 
-      {/* =====================================================
-          EDIT PROJECT MODAL (POLISHED UI)
-      ===================================================== */}
       {editModalOpen && (
         <div style={{
           position: "fixed",
@@ -833,8 +832,7 @@ function MyProjects() {
                     color: "#94a3b8",
                     cursor: "pointer",
                     fontWeight: "600",
-                    fontSize: "14px",
-                    transition: "all 0.2s"
+                    fontSize: "14px"
                   }}
                 >
                   Cancel
@@ -851,8 +849,7 @@ function MyProjects() {
                     cursor: "pointer",
                     fontWeight: "600",
                     fontSize: "14px",
-                    boxShadow: "0 4px 15px rgba(59, 130, 246, 0.4)",
-                    transition: "all 0.2s"
+                    boxShadow: "0 4px 15px rgba(59, 130, 246, 0.4)"
                   }}
                 >
                   {isSavingEdit ? "Saving..." : "Save Changes"}
