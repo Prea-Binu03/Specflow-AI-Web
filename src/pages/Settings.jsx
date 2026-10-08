@@ -12,6 +12,8 @@ function Settings() {
   const userRole = storedUser?.role || "Developer / Creator";
   const userCollege = storedUser?.college || storedUser?.organization || "Not Specified";
 
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
   const [appearance, setAppearance] = useState(() => {
     return localStorage.getItem("specflow_appearance") || "dark";
   });
@@ -31,15 +33,41 @@ function Settings() {
     return saved !== null ? JSON.parse(saved) : false;
   });
 
-  // Projects state initialized lazily to avoid the useEffect setState warning
-  const [projects] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem("specflow_projects") || "[]");
-    } catch (err) {
-      console.error("Failed to load projects", err);
-      return [];
-    }
-  });
+  // Projects state for sidebar history loaded from backend API
+  const [projects, setProjects] = useState([]);
+  
+  const userId = storedUser?._id || storedUser?.id || storedUser?.userId;
+
+  useEffect(() => {
+    const loadProjects = async () => {
+      try {
+        if (!userId) {
+          setProjects([]);
+          return;
+        }
+
+        const response = await fetch(`${API_URL}/api/projects/user/${userId}`);
+        const data = await response.json();
+
+        if (!response.ok) {
+          console.error(data.message || "Unable to load projects");
+          setProjects([]);
+          return;
+        }
+
+        const projectList = Array.isArray(data)
+          ? data
+          : (data.projects || data.data || data.result || []);
+
+        setProjects(projectList);
+      } catch (error) {
+        console.error("Settings Project History Error:", error);
+        setProjects([]);
+      }
+    };
+
+    loadProjects();
+  }, [userId, API_URL]);
   
   // Dropdown state for topbar user menu
   const [dropdownOpen, setDropdownOpen] = useState(false);

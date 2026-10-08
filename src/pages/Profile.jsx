@@ -7,6 +7,8 @@ function Profile() {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [projects, setProjects] = useState([]);
 
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
   // Get logged-in user from localStorage
   const savedUser = JSON.parse(
     localStorage.getItem("user") || "null"
@@ -47,7 +49,7 @@ function Profile() {
       }
 
       const response = await fetch(
-        `http://localhost:5000/api/projects/user/${userId}`
+        `${API_URL}/api/projects/user/${userId}`
       );
 
       const data = await response.json();
@@ -70,7 +72,7 @@ function Profile() {
       );
       setProjects([]);
     }
-  }, []);
+  }, [API_URL]);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -127,7 +129,7 @@ function Profile() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/auth/profile/${savedUser._id}`,
+        `${API_URL}/api/auth/profile/${savedUser._id}`,
         {
           method: "PUT",
           headers: {
