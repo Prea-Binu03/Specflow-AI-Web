@@ -242,7 +242,7 @@ function ProjectIdea() {
       // =================================================
 
       const response = await fetch(
-        "http://localhost:5000/api/projects",
+  `${API_URL}/api/projects`,
         {
           method: "POST",
           body: formData,
@@ -286,7 +286,7 @@ function ProjectIdea() {
       // =================================================
 
       const aiResponse = await fetch(
-        `http://localhost:5000/api/projects/${projectId}/generate-plan`,
+        `${API_URL}/api/projects/${projectId}/generate-plan`,
         {
           method: "POST",
         }
