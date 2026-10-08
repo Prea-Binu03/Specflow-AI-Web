@@ -241,14 +241,13 @@ function ProjectIdea() {
       // CREATE PROJECT IN DATABASE
       // =================================================
 
-      const response = await fetch(
+   const response = await fetch(
   `${API_URL}/api/projects`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-
+  {
+    method: "POST",
+    body: formData,
+  }
+);
       const data = await response.json();
 
       // =================================================
@@ -286,7 +285,7 @@ function ProjectIdea() {
       // =================================================
 
       const aiResponse = await fetch(
-        `${API_URL}/api/projects/${projectId}/generate-plan`,
+        `http://localhost:5000/api/projects/${projectId}/generate-plan`,
         {
           method: "POST",
         }
